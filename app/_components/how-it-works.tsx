@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollAnimation } from "./ui/scroll-animation";
+import { ScrollAnimation } from "../components/ui/scroll-animation";
 import { motion } from "framer-motion";
 
 export function HowItWorks() {
@@ -8,25 +8,29 @@ export function HowItWorks() {
     {
       number: "01",
       title: "Connect Your Wallet",
-      description: "Set up your digital wallet to start making secure donations through blockchain technology.",
+      description:
+        "Set up your digital wallet to start making secure donations through blockchain technology.",
       icon: "💳",
     },
     {
       number: "02",
       title: "Choose Your Impact",
-      description: "Select from verified refugee aid programs and decide how you want to make a difference.",
+      description:
+        "Select from verified refugee aid programs and decide how you want to make a difference.",
       icon: "🎯",
     },
     {
       number: "03",
       title: "Track Your Donation",
-      description: "Follow your contribution's journey in real-time through our transparent blockchain system.",
+      description:
+        "Follow your contribution's journey in real-time through our transparent blockchain system.",
       icon: "📊",
     },
     {
       number: "04",
       title: "See Real Results",
-      description: "Receive updates and see the direct impact of your support on refugee communities.",
+      description:
+        "Receive updates and see the direct impact of your support on refugee communities.",
       icon: "✨",
     },
   ];
@@ -36,9 +40,9 @@ export function HowItWorks() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   return (
@@ -53,7 +57,7 @@ export function HowItWorks() {
           </p>
         </ScrollAnimation>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -61,7 +65,7 @@ export function HowItWorks() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
         >
           {steps.map((step, index) => (
-            <ScrollAnimation 
+            <ScrollAnimation
               key={index}
               className="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-lg transition-all duration-700 transform hover:-translate-y-[2px]"
             >
@@ -81,11 +85,21 @@ export function HowItWorks() {
                   </p>
                 </div>
               </div>
-              
+
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                  <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-8 h-8 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               )}

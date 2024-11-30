@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@nextui-org/button";
-import { BackgroundGradient } from "./ui/background-gradient";
+import { BackgroundGradient } from "../components/ui/background-gradient";
 
 export function Hero() {
   const images = [

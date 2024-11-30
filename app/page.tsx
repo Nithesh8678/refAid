@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Header } from "./components/header";
-import { Hero } from "./components/hero";
-import { Features } from "./components/features";
-import { HowItWorks } from "./components/how-it-works";
-import { Impact } from "./components/impact";
-import { Testimonials } from "./components/testimonials";
-import { Partners } from "./components/partners";
-import { Footer } from "./components/footer";
+import { Header } from "./_components/header";
+import { Hero } from "./_components/hero";
+import { Features } from "./_components/features";
+import { HowItWorks } from "./_components/how-it-works";
+import { Impact } from "./_components/impact";
+import { Testimonials } from "./_components/testimonials";
+import { Partners } from "./_components/partners";
+import { Footer } from "./_components/footer";
 
 export default function LandingPage() {
   return (

@@ -1,23 +1,26 @@
 "use client";
 
-import { ScrollAnimation } from "./ui/scroll-animation";
+import { ScrollAnimation } from "../components/ui/scroll-animation";
 import { motion } from "framer-motion";
 
 export function Features() {
   const features = [
     {
       title: "Transparent Aid Distribution",
-      description: "Track every donation in real-time through blockchain technology.",
+      description:
+        "Track every donation in real-time through blockchain technology.",
       icon: "🔍",
     },
     {
       title: "Direct Impact",
-      description: "Connect directly with refugees and see how your support makes a difference.",
+      description:
+        "Connect directly with refugees and see how your support makes a difference.",
       icon: "🤝",
     },
     {
       title: "Secure Transactions",
-      description: "Blockchain-powered security ensures safe and traceable aid delivery.",
+      description:
+        "Blockchain-powered security ensures safe and traceable aid delivery.",
       icon: "🔒",
     },
   ];
@@ -27,9 +30,9 @@ export function Features() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   return (
@@ -44,7 +47,7 @@ export function Features() {
           </p>
         </ScrollAnimation>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -52,7 +55,7 @@ export function Features() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
         >
           {features.map((feature, index) => (
-            <ScrollAnimation 
+            <ScrollAnimation
               key={index}
               className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >

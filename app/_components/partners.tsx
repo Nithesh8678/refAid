@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollAnimation } from "./ui/scroll-animation";
+import { ScrollAnimation } from "../components/ui/scroll-animation";
 import Image from "next/image";
 
 export function Partners() {
@@ -34,7 +34,7 @@ export function Partners() {
       name: "Save the Children",
       logo: "/save-children.webp",
       link: "https://www.savethechildren.org/",
-    }
+    },
   ];
 
   return (
@@ -51,13 +51,10 @@ export function Partners() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 md:gap-12">
           {partners.map((partner, index) => (
-            <ScrollAnimation 
-              key={index}
-              className="flex justify-center"
-            >
-              <a 
-                href={partner.link} 
-                target="_blank" 
+            <ScrollAnimation key={index} className="flex justify-center">
+              <a
+                href={partner.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group relative p-4 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
               >
