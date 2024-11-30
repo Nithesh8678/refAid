@@ -1,64 +1,71 @@
 "use client";
 
+import { ScrollAnimation } from "./ui/scroll-animation";
 import { motion } from "framer-motion";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Wallet, DollarSign, Briefcase, Map } from "lucide-react";
-
-const features = [
-  {
-    title: "Digital Identity Wallets",
-    description: "Secure and portable digital identities for refugees.",
-    icon: Wallet,
-  },
-  {
-    title: "Transparent Donations",
-    description: "Track your donations and see their impact in real-time.",
-    icon: DollarSign,
-  },
-  {
-    title: "Job Matching",
-    description:
-      "Connect refugees with employment opportunities based on their skills.",
-    icon: Briefcase,
-  },
-  {
-    title: "Resource Mapping",
-    description: "Locate and access nearby aid resources and services.",
-    icon: Map,
-  },
-];
 
 export function Features() {
+  const features = [
+    {
+      title: "Transparent Aid Distribution",
+      description: "Track every donation in real-time through blockchain technology.",
+      icon: "🔍",
+    },
+    {
+      title: "Direct Impact",
+      description: "Connect directly with refugees and see how your support makes a difference.",
+      icon: "🤝",
+    },
+    {
+      title: "Secure Transactions",
+      description: "Blockchain-powered security ensures safe and traceable aid delivery.",
+      icon: "🔒",
+    },
+  ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
     <section id="features" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-          Our Features
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <ScrollAnimation className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Our Features
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            Innovative solutions for effective aid distribution
+          </p>
+        </ScrollAnimation>
+
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
+        >
           {features.map((feature, index) => (
-            <motion.div
+            <ScrollAnimation 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <Card className="dark:bg-gray-800">
-                <CardHeader>
-                  <h3 className="flex items-center text-gray-800 dark:text-white">
-                    <feature.icon className="w-6 h-6 mr-2 text-blue-500 dark:text-blue-400" />
-                    {feature.title}
-                  </h3>
-                </CardHeader>
-                <CardBody>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {feature.description}
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
+              <div className="text-5xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {feature.description}
+              </p>
+            </ScrollAnimation>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

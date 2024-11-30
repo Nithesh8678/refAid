@@ -1,66 +1,97 @@
 "use client";
 
+import { ScrollAnimation } from "./ui/scroll-animation";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardBody } from "@nextui-org/card";
-import { UserPlus, FileText, HandHeart, Rocket } from "lucide-react";
-
-const steps = [
-  {
-    title: "Register",
-    description: "Create a secure digital identity on the RefAid platform.",
-    icon: UserPlus,
-  },
-  {
-    title: "Post Needs",
-    description: "Share your specific needs or skills with the community.",
-    icon: FileText,
-  },
-  {
-    title: "Receive Support",
-    description: "Connect with donors or employers who can help.",
-    icon: HandHeart,
-  },
-  {
-    title: "Build Independence",
-    description: "Use the resources and opportunities to establish a new life.",
-    icon: Rocket,
-  },
-];
 
 export function HowItWorks() {
+  const steps = [
+    {
+      number: "01",
+      title: "Connect Your Wallet",
+      description: "Set up your digital wallet to start making secure donations through blockchain technology.",
+      icon: "💳",
+    },
+    {
+      number: "02",
+      title: "Choose Your Impact",
+      description: "Select from verified refugee aid programs and decide how you want to make a difference.",
+      icon: "🎯",
+    },
+    {
+      number: "03",
+      title: "Track Your Donation",
+      description: "Follow your contribution's journey in real-time through our transparent blockchain system.",
+      icon: "📊",
+    },
+    {
+      number: "04",
+      title: "See Real Results",
+      description: "Receive updates and see the direct impact of your support on refugee communities.",
+      icon: "✨",
+    },
+  ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
-    <section id="how-it-works" className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section id="how-it-works" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-          How It Works
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <ScrollAnimation className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            How It Works
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            Making aid distribution transparent and efficient
+          </p>
+        </ScrollAnimation>
+
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
+        >
           {steps.map((step, index) => (
-            <motion.div
+            <ScrollAnimation 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-lg transition-all duration-700 transform hover:-translate-y-[2px]"
             >
-              <Card className="dark:bg-gray-700">
-                <CardHeader className="flex items-center text-gray-800 dark:text-white">
-                  <step.icon className="w-6 h-6 mr-2 text-green-500 dark:text-green-400" />
-                  {step.title}
-                </CardHeader>
-                <CardBody>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {step.description}
-                  </p>
-                </CardBody>
-                <div className="p-4">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900 rounded-lg p-3">
+                  <span className="text-4xl">{step.icon}</span>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                    Step {step.number}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                    {step.title}
+                  </h3>
                   <p className="text-gray-600 dark:text-gray-300">
                     {step.description}
                   </p>
                 </div>
-              </Card>
-            </motion.div>
+              </div>
+              
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                  <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )}
+            </ScrollAnimation>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
