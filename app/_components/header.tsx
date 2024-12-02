@@ -16,11 +16,12 @@ export function Header() {
     if (element) {
       const headerOffset = 80; // Adjust this value based on your header height
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -82,7 +83,9 @@ export function Header() {
               <Moon className="h-[1.2rem] w-[1.2rem]" />
             )}
           </Button>
-          <Button>Get Started</Button>
+          <Button>
+            <Link href="/dashboard">Get Started</Link>
+          </Button>
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>

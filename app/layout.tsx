@@ -1,5 +1,4 @@
 import { Providers } from "./providers";
-import { RainbowKitProviders } from "./providers/rainbow-provider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -10,9 +9,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <RainbowKitProviders>
+        {/* <RainbowKitProviders>
           <Providers>{children}</Providers>
-        </RainbowKitProviders>
+        </RainbowKitProviders> */}
+        {children}
       </body>
     </html>
   );
