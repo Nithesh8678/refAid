@@ -6,8 +6,8 @@ import { BackgroundGradient } from "../components/ui/background-gradient";
 
 export function Hero() {
   const images = [
+    "https://www.istockphoto.com/photo/refugees-and-immigrants-looking-for-a-new-hope-in-life-silhouette-column-of-migrants-gm2086778196-565612013    ",
     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2274&q=80",
-    "https://images.unsplash.com/photo-1551239262-61cf00f7f55d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2274&q=80",
     "https://images.unsplash.com/photo-1502472584811-0a2f2feb8968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2270&q=80",
     "https://images.unsplash.com/photo-1686937871123-3033860eb918?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2274&q=80",
   ];
